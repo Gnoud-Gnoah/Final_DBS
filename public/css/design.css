@@ -204,7 +204,40 @@ ul.droplinemenu  > li > ul > li:hover {
 }
 
 
-
+form.searchBar input[type=text] {
+	padding: 10px;
+	font-size: 20px;
+	border: 1px solid grey;
+	float: left;
+	width: 80%;
+	height: 30px;
+	background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.searchBar button {
+	float: left;
+	width: 17%;
+	height: 52px;
+	padding: 10px;
+	background: #2196F3;
+	color: white;
+	font-size: 20px;
+	border: 1px solid grey;
+	border-left: none; /* Prevent double borders */
+	cursor: pointer;
+  }
+  
+  form.searchBar button:hover {
+	background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  form.searchBar::after {
+	content: "";
+	clear: both;
+	display: table;
+  }
 
 
 
