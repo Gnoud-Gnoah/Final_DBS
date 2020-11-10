@@ -1,8 +1,14 @@
-<!DOCTYPE html><html><head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="StyleSheet" type="text/css" href="../css/enterData.css"/>
-</head><body>
-		<form id="form1" method="post" action="newacc.php">
+@extends('layouts.default')
+
+@section('title', 'Ví dụ đầu tiên về Blade template')
+
+@section('sidebar')
+    @parent
+    <link rel="StyleSheet" type="text/css" href="../css/enterData.css"/>
+@endsection
+
+@section('content')
+<form id="form1" method="post" action="newacc.php">
 			<!--
 				Con trỏ sự kiện của các đối tượng #hoten, #diachi, #nam, #nu, #ngaysinh, #email
 				được gán giá trị sau (xem tệp js/form.js).
@@ -128,4 +134,5 @@
 			</div>
 		</form>
 		<script type="text/javascript" src="../js/enterData.js"></script>
-</body></html>
+@endsection
+
