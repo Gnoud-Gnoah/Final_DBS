@@ -25,9 +25,6 @@ class InformationFactory extends Factory
             'hoten' => $this->faker->name,
             'ngaysinh' => $this->faker->date($this->format = 'Y-m-d', $this->max = 'now'),
             'gioitinh' => $this->faker->randomElement(['male' ,'female']),
-            'nhommau' =>  $this->faker->randomElement(['O' ,'A', 'B', 'AB']),
-            'honnhan' => $this->faker->randomElement(['married', 'not married','divorce']),
-            'noikhaisinh' => $this->faker->address,
             'quequan' => $this->faker->address,
             'dantoc' => $this->faker->randomElement(['BANA','BO Y','BRAU','BRU-VAN KIEU','CHAM','CHO RO','CHU-RU','CHUT',
             'CO','CO HO','CO LAO','CO TU',
@@ -43,8 +40,6 @@ class InformationFactory extends Factory
             'THAI','THO','KINH','XINH MUN',
             'XO ĐANG','XTIENG']),
             'socmnd' => $this->faker->numberBetween(123456789,987654321),
-            'noithuongchu' => $this->faker->address,
-            'noihientai' => $this->faker->address,
         ];
     }
 }

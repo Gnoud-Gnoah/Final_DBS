@@ -1,20 +1,15 @@
 <?php
-  
+
 namespace App\Http\Controllers;
-  
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class SearchController extends Controller
+class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('font-end.search');
+        return view('font-end.admin');
     }
   
     /**
@@ -22,7 +17,7 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function autocomplete(Request $request)
+    public function adminSearch(Request $request)
     {
         $search = $request->input('search');
         $data = DB::table('information')
@@ -30,6 +25,7 @@ class SearchController extends Controller
             ->select('information.hoten', 'information.ngaysinh', 'information.quequan', 'information.dantoc', 'information.socmnd', 'tax_codes.masothue', 'tax_codes.quanly', 'tax_codes.tinhtrang')
             ->where('information.socmnd', '=',$search)
             ->orWhere('information.hoten', '=',$search)
+            ->orWhere('information.dantoc', '=', $search)
             ->get();         
         return response()->json([
             'error'=> false,

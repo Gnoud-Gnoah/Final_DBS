@@ -41,7 +41,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chức năng<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/search">Tìm kiếm</a></li>
-                            <li><a href="/input">Thêm dữ liệu</a></li>
+                            <li><a href="/admin">Thêm dữ liệu</a></li>
                         </ul>
                     </li>
                     <li><a href="/contact">Liên hệ</a></li>
@@ -59,7 +59,6 @@
     </div>
         <p class="lead">
             @section('sidebar')
-                Phần chính trong sidebar.
             @show
             @yield('content')
         </p>

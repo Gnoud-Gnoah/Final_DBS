@@ -17,3 +17,4 @@ class informationTableSeeder extends Seeder
         Information::factory(10000)->create();
     }
 }
+

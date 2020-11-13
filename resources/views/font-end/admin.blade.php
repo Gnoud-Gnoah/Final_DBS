@@ -7,6 +7,17 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <Style>
+        .add_button {
+            position: relative;
+            left: 850px;
+            bottom: 10px;
+            background: #A9FFF0;
+            border: 2px solid #67FFE4;
+            border-radius: 5px 5px 5px 5px;
+            font-size: 19px;
+        }
+    </Style>
 
 @endsection
 
@@ -14,42 +25,38 @@
 
     <div class="container">
         <h1>Nhập đầy đủ tên hoặc số CMND để tìm kiếm</h1>   
+        <button class='add_button' type="button" class="btn btn-info">Thêm</button>
         <input class="typeahead form-control" type="text" id="search" value="">
         <span></span>
-    </div>
-    <div id = 'exception'>
+        <div id = 'exception'>
        
     </div>
     <table class="table">
             <thead>
             <tr>
                 <th>Họ và tên</th>
-                <th>Ngày sinh</th>
-                <th>Địa chỉ</th>
-                <th>Dân tộc</th>
+                <th>Số CMND</th>
                 <th>Mã số thuế</th>
-                <th>Quản lí bởi</th>
-                <th>Tình trạng</th>
+                <th>Chức năng</th>
             </tr>
             </thead>
             <tbody>
-                <tr id='abcd'></tr>
+                <tr id = 'content_tax'></tr>
             </tbody>
         </table>
 
     <script type="text/javascript">
     $(document).keypress(function(event) {
         if (event.keyCode == 13 || event.which == 13) {
-            var parent = document.getElementById("abcd");
-            parent.remove();
+            var parent = document.getElementById("content_tax");
+            parent?.remove();
             let key = document.getElementById("search");
             getData(key.value);
-            
         }
     })
        const getData = (key) => {
         $.ajax({
-            url: '/autocomplete?search=' + key,
+            url: '/adminSearch?search=' + key,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -61,10 +68,10 @@
                         alert("Không có kết quả! Vui lòng nhập từ khóa khác để tìm kiếm!");
                     }else{
                         for (let i = 0; i < res.data.length; i++) {
-                            let row = "<tr id='abcd'><td>"  + res.data[i].hoten+ 
-                            "</td><td>" + res.data[i].ngaysinh + 
-                            "</td><td>" + res.data[i].noihientai + 
-                            "</td><td>"+ res.data[i].dantoc + 
+                            let row = "<tr id='content_tax'><td>"  + res.data[i].hoten +
+                            "</td><td>" + res.data[i].socmnd + 
+                            "</td><td>" + res.data[i].masothue + 
+                            "</td><td>" + "<button type='button' class='btn btn-success'>Chi tiết</button>" + "<button type='button' class='btn btn-info'>Sửa</button>" + "<button type='button' class='btn btn-danger'>Xóa</button>" +
                             "</td></tr>";
                             $("tbody").append(row);
                         }
@@ -76,4 +83,6 @@
         });
        }
     </script>
+    </div>
+    
 @endsection

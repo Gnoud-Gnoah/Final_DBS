@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+
 class CreateInformationTable extends Migration
 {
     /**
@@ -14,13 +16,10 @@ class CreateInformationTable extends Migration
     public function up()
     {
         Schema::create('Information', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('information_id');
             $table->string('hoten', 50);
             $table->dateTime('ngaysinh');
             $table->enum('gioitinh', ['male', 'female']);
-            $table->enum('nhommau', ['O', 'A', 'B', 'AB']);
-            $table->enum('honnhan', ['married', 'not married', 'divorce']);
-            $table->string('noikhaisinh');
             $table->string('quequan');
             $table->enum('dantoc', ['BANA','BO Y','BRAU','BRU-VAN KIEU','CHAM','CHO RO','CHU-RU','CHUT',
             'CO','CO HO','CO LAO','CO TU',
@@ -36,9 +35,6 @@ class CreateInformationTable extends Migration
             'THAI','THO','KINH','XINH MUN',
             'XO ĐANG','XTIENG']);
             $table->bigInteger('socmnd')->unique();
-            $table->string('noithuongchu');
-            $table->string('noihientai');
-            $table->longText('ghichu')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
