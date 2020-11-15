@@ -27,7 +27,7 @@ class SearchController extends Controller
         $search = $request->input('search');
         $data = DB::table('information')
             ->join('tax_codes', 'information.socmnd', '=', 'tax_codes.socmnd')
-            ->select('information.hoten', 'information.ngaysinh', 'information.quequan', 'information.dantoc', 'information.socmnd', 'tax_codes.masothue', 'tax_codes.quanly', 'tax_codes.tinhtrang')
+            ->select('information.hoten', 'information.ngaysinh', 'information.quequan', 'information.socmnd', 'tax_codes.masothue', 'tax_codes.quanly', 'tax_codes.tinhtrang')
             ->where('information.socmnd', '=',$search)
             ->orWhere('information.hoten', '=',$search)
             ->get();         

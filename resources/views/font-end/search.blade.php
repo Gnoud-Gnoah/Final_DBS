@@ -26,7 +26,6 @@
                 <th>Họ và tên</th>
                 <th>Ngày sinh</th>
                 <th>Địa chỉ</th>
-                <th>Dân tộc</th>
                 <th>Mã số thuế</th>
                 <th>Quản lí bởi</th>
                 <th>Tình trạng</th>
@@ -41,7 +40,7 @@
     $(document).keypress(function(event) {
         if (event.keyCode == 13 || event.which == 13) {
             var parent = document.getElementById("abcd");
-            parent.remove();
+            parent?.remove();
             let key = document.getElementById("search");
             getData(key.value);
             
@@ -63,8 +62,10 @@
                         for (let i = 0; i < res.data.length; i++) {
                             let row = "<tr id='abcd'><td>"  + res.data[i].hoten+ 
                             "</td><td>" + res.data[i].ngaysinh + 
-                            "</td><td>" + res.data[i].noihientai + 
-                            "</td><td>"+ res.data[i].dantoc + 
+                            "</td><td>" + res.data[i].quequan +
+                            "</td><td>" + res.data[i].masothue +
+                            "</td><td>" + res.data[i].quanly +
+                            "</td><td>" + res.data[i].tinhtrang +
                             "</td></tr>";
                             $("tbody").append(row);
                         }
