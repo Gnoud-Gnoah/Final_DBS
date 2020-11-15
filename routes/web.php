@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('font-end.main');
 });
 
-Route::get('/input', function(){
-    return view('input');
-});
+Route::get('search', [SearchController::class, 'index'])->name('search');
+Route::get('autocomplete', [SearchController::class, 'autocomplete'])->name('autocomplete');
+
+Route::get('admin', [AdminController::class, 'index'])->name('admin');
+Route::get('adminSearch', [AdminController::class, 'adminSearch'])->name('adminSearch');
