@@ -24,3 +24,11 @@ Route::get('autocomplete', [SearchController::class, 'autocomplete'])->name('aut
 
 Route::get('admin', [AdminController::class, 'index'])->name('admin');
 Route::get('adminSearch', [AdminController::class, 'adminSearch'])->name('adminSearch');
+
+Route::get('/admin/input', [AdminController::class, 'indexInput']);
+Route::get('/takeDataUnique', [AdminController::class, 'takeDataUnique']);
+Route::get('/admin/indexRepair', [AdminController::class, 'indexRepair']);
+
+Route::post('/admin/input/out', [AdminController::class, 'add']);
+Route::post('/admin/repair', [AdminController::class, 'repair']);
+Route::post('/admin/remove', [AdminController::class, 'remove']);
