@@ -47,7 +47,7 @@ class AdminController extends Controller
             'socmnd' => $request->input('socmnd'),
             'masothue' => $num]
         );
-        return view('font-end.input');
+        return view('font-end.admin');
     }
 
     public function indexRepair(){
