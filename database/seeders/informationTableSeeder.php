@@ -14,7 +14,7 @@ class informationTableSeeder extends Seeder
      */
     public function run()
     {
-        Information::factory(10000)->create();
+        Information::factory(1000)->create();
     }
 }
 
