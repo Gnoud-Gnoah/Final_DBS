@@ -67,13 +67,13 @@
 			okie = false;
 		}
 
-		if (okie) {
-			$('#tsubmit').append('<div id="bsubmit"><button type="submit" class="btn btn-default" onclick ="add()">Submit</button></div>');
+		// if (okie) {
+		// 	$('#tsubmit').append('');
 			
-		}else{
-			var parent = document.getElementById("bsubmit");
-            parent?.remove();
-		}
+		// }else{
+		// 	var parent = document.getElementById("bsubmit");
+        //     parent?.remove();
+		// }
 	}
 
 	function add(){
@@ -186,9 +186,7 @@
     <input class="form-control" id="ngayhd" name="ngayhd" placeholder="yyyy-mm-dd">
 	<span id="loi_ngayhd" class="Baoloi" ></span>
   </div>
-	<div id='tsubmit'>
-		<div id='bsubmit'></div>
-	</div>
+  <div id="bsubmit"><button type="submit" class="btn btn-default" onclick ="add()">Submit</button></div>
 </form>
 @endsection
 
